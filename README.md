@@ -16,33 +16,8 @@ This repository contains the **LookML** data model and dashboard configurations 
 
 ## 🏗️ Data Architecture
 
-The project is built on a Snowflake/PostgreSQL data warehouse using a Star Schema approach.
+The project is built on a PostgreSQL data warehouse using a Star Schema approach.
 
-### **Core Explores**
-* **Orders:** The central hub for analysis, joined with `People` (Regional Managers) and `Returns`.
-
-### **Entity Relationship Diagram (ERD)**
-
-```mermaid
-erDiagram
-    ORDERS ||--o{ RETURNS : "One-to-Many"
-    ORDERS }|--|| PEOPLE : "Many-to-One"
-    
-    ORDERS {
-        string order_id PK
-        string customer_id
-        string region
-        number sales
-        number profit
-    }
-    RETURNS {
-        string order_id FK
-        string returned
-    }
-    PEOPLE {
-        string region PK
-        string person "Regional Manager"
-    }
 
     ## 📈 Dashboard Highlights
 
